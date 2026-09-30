@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+# Serve a loja na raiz do site
+[[redirects]]
+  from = "/"
+  to = "/adega-pro.html"
+  status = 200
