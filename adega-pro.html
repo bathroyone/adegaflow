@@ -138,7 +138,7 @@ function shop(){
 function grid(){
  const l=prods.filter(p=>p.on&&p.name.toLowerCase().includes(q.toLowerCase())),cs=[...new Set(l.map(p=>p.cat))];
  $('#cs').innerHTML=cs.map((c,i)=>`<button class="chip" data-i="${i}">${esc(c)}</button>`).join('');
- $('#gr').innerHTML=cs.length?cs.map((c,i)=>`<section class="sec" id="c${i}"><h2>${esc(c)}</h2><div class="pl">${l.filter(p=>p.cat===c).map(row).join('')}</div></section>`).join(''):'<div class="empty">Nenhum produto encontrado.</div>';
+ $('#gr').innerHTML=cs.length?cs.map((c,i)=>`<section class="sec" id="c${i}"><h2>${esc(c)}</h2><div class="pl">${l.filter(p=>p.cat===c).map(row).join('')}</div></section>`).join(''):'<div class="empty">'+(!prods.length?'Nenhum produto disponível no momento.':!prods.some(p=>p.on)?'Nenhum produto ativo no momento.':'Nenhum produto encontrado.')+'</div>';
  document.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>$('#c'+b.dataset.i).scrollIntoView());
  document.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>add(b.dataset.p,1));
  document.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>add(b.dataset.m,-1));
