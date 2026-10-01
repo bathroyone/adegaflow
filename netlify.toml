@@ -1,8 +1,8 @@
 [build]
-  publish = "."
+  command = "npm run build"
+  publish = "dist"
 
-# Serve a loja na raiz do site
 [[redirects]]
-  from = "/"
-  to = "/adega-pro.html"
+  from = "/*"
+  to = "/index.html"
   status = 200
